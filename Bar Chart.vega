@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "GFDataSeperated.csv"
+    },
+
+    "config": {
+      "background": "lightskyblue"
+    },
+    "title": "Grand Final Record",
+    "width": "container",
+    "height": 400, 
+
+    "mark": {"type":"bar", "tooltip":true},
+    "encoding": {
+      "x": {
+        "field": "TeamGF",
+        "type": "nominal",
+        "title": "Team"
+      },
+      
+      "y": {
+        "aggregate": "count",
+        "field": "Outcome",
+        "type": "nominal",
+        "title": "GF wins, draws and loses",
+        "scale": {"type":"linear","domainMax":50,"domainMin":0}
+      },
+      "color": {
+        "field": "Outcome",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+
+            "Wins",
+            "Draws",
+            "Loses"
+
+          ],
+          "range": [
+            "#1f77b4",
+            "#9467bd",
+            "#e7ba52"
+          ]
+        }
+      }
+    }
+  }
